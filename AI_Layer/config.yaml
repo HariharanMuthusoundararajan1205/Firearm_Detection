@@ -1,0 +1,28 @@
+cameras:
+  - id: CAM_01
+    source: "rtsp://admin:Madello%40123@192.168.31.21:554/live"
+    # source: "weapon_input_video.mp4"
+
+  # - id: CAM_02
+  #   rtsp: "rtsp://localhost:8554/cam1"
+  #   source : "weapon_input_video.mp4"
+
+thresholds:
+  human_threshold: 0.5
+  firearm_threshold: 0.75
+
+grid:
+  size: 200
+
+system:
+  fps: 5
+  queue_size: 1
+  mode : rtsp
+  loop: False
+
+api:
+  enabled: true
+  endpoint: "http://127.0.0.1:8000/ingest-detections"
+  timeout_seconds: 5
+  queue_size: 100
+  send_empty_events: False
